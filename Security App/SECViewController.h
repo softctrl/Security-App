@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "../libnet/libnet.h"
+#include "../libpcap/pcap.h"
 
 @interface SECViewController : UIViewController
+- (IBAction)startButton:(id)sender;
 
 @end

@@ -42,4 +42,4 @@
  * OSes that have "helpfully" moved pcap.h to <pcap/pcap.h> without
  * leaving behind a <pcap.h> file.
  */
-#include <pcap/pcap.h>
+#include "pcap/pcap.h"

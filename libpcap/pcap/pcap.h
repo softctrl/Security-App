@@ -48,7 +48,7 @@
 #endif /* WIN32/MSDOS/UN*X */
 
 #ifndef PCAP_DONT_INCLUDE_PCAP_BPF_H
-#include <pcap/bpf.h>
+#include "bpf.h"
 #endif
 
 #include <stdio.h>

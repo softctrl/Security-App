@@ -7,13 +7,13 @@
 //
 
 #import "SECViewController.h"
+#include <stdio.h>
 
 @interface SECViewController ()
 
 @end
 
 @implementation SECViewController
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -22,7 +22,7 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
+        [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
@@ -31,4 +31,7 @@
     return YES;
 }
 
+- (IBAction)startButton:(id)sender {
+    printf("moo\n");
+}
 @end
