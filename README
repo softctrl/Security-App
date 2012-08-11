@@ -1,0 +1,34 @@
+REQUIREMENTS
+
+IPAD Jailbroken With AppSync 5+
+Jailcoder setup and install  www.jailcoder.com
+
+FILE LIST
+
+todo
+
+INSTALL  
+
+IPAD setup
+
+jailbreak find a guide
+add source to cydia
+http://cydia.hackulo.us
+install latest version of appsync  (makes it so you can use self signed cert)
+
+Mac setup
+
+install from github
+
+git clone https://github.com/warren80/Security-App.git
+add to xcode (TODO)
+
+install jailcoder
+	add certificates
+	patch xcode
+	patch project
+
+Connect ipad and select it
+click the run button.  
+
+Should now work
