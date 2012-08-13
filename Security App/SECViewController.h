@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "../libnet/libnet.h"
-#include "../libpcap/pcap.h"
+#import "SECCWrapper.h"
 
-@interface SECViewController : UIViewController
+@interface SECViewController : UIViewController <UIApplicationDelegate, ProcessDataDelegate>
+{
+    SECCWrapper *protocolTest;
+}
 - (IBAction)startButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *outputText;
+@property (copy, nonatomic) NSString *outputTextString;
 
 @end

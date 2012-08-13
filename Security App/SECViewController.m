@@ -7,13 +7,15 @@
 //
 
 #import "SECViewController.h"
-#include <stdio.h>
+#import "SECCWrapper.h"
 
 @interface SECViewController ()
 
 @end
 
 @implementation SECViewController
+@synthesize outputTextString = _outputTextString;
+@synthesize outputText;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -22,6 +24,7 @@
 
 - (void)viewDidUnload
 {
+    [self setOutputText:nil];
         [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -32,6 +35,27 @@
 }
 
 - (IBAction)startButton:(id)sender {
-    printf("moo\n");
+    protocolTest = [[SECCWrapper alloc] init];
+    [protocolTest setDelegate:self];
+    [protocolTest pingScan];
 }
+
+- (void) appendStringtoOutputText:(NSString *) str
+{
+    self.outputTextString = self.outputText.text;
+    NSString *textString = self.outputTextString;
+    
+    NSString *out = [[NSString alloc] initWithFormat:@"%@%@", textString, str];
+                     //[NSString stringWithUTF8String:str]];
+    self.outputText.text = out;
+
+    
+}
+
+- (void) processSuccessful:(BOOL) result
+{
+    NSLog(@"wtf");
+} 
+
+
 @end

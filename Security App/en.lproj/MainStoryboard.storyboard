@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Au-dP-tvi">
-                                <rect key="frame" x="369" y="603" width="72" height="37"/>
+                                <rect key="frame" x="348" y="954" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Start">
@@ -29,9 +29,19 @@
                                     <action selector="startButton:" destination="2" eventType="touchUpInside" id="Djx-P2-tqF"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Don't do anything illegal DAMIT.  This is for auditing purposes ONLY... heh" id="lCW-YT-R9B">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="940"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="outputText" destination="lCW-YT-R9B" id="2eL-sw-Pih"/>
+                    </connections>
                 </viewController>
             </objects>
         </scene>
@@ -41,6 +51,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SECViewController.h"/>
             <relationships>
                 <relationship kind="action" name="startButton:"/>
+                <relationship kind="outlet" name="outputText" candidateClass="UITextView"/>
             </relationships>
         </class>
     </classes>
