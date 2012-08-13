@@ -2,6 +2,7 @@ REQUIREMENTS
 
 IPAD Jailbroken With AppSync 5+
 Jailcoder setup and install  www.jailcoder.com
+ios 5.1 compatibility required
 
 FILE LIST
 
@@ -31,4 +32,4 @@ install jailcoder
 Connect ipad and select it
 click the run button.  
 
-Should now work
+Should now work as long as your using the same xcode version and ios version
