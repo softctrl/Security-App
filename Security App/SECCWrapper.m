@@ -13,13 +13,9 @@
 @implementation SECCWrapper
 @synthesize delegate;
 
-void receiverFunction(const char *filename) {
-    FILE *file = NULL;
-    if ((file = fopen(filename, "w")) == NULL) {
-        return;
-    }
-    printf("Reciever started\n");
-    //pcapLoop(file);
+void receiverFunction() {
+    
+    
     
 }
 
@@ -36,9 +32,10 @@ void receiverFunction(const char *filename) {
 
 -(void) pingScan
 {
-    //[self performSelector:@selector (processUpdate:) withObject:@"wtf\n"];
+    //@"wtf\n"];
     //[NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(processComplete) userInfo:nil repeats:YES];
-    receiverFunction("blah");
+    NSString* string = [NSString stringWithFormat:@"%s" , pcapLoop()];
+    [self performSelector:@selector (processUpdate:) withObject:string];
     
 }
 

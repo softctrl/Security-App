@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F83F9C6815DA9D03008275D0 /* README in Resources */ = {isa = PBXBuildFile; fileRef = F83F9C6715DA9D03008275D0 /* README */; };
 		F885341915D5B6EA00248B51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F885341815D5B6EA00248B51 /* UIKit.framework */; };
 		F885341B15D5B6EA00248B51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F885341A15D5B6EA00248B51 /* Foundation.framework */; };
 		F885341D15D5B6EA00248B51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F885341C15D5B6EA00248B51 /* CoreGraphics.framework */; };
@@ -29,7 +30,7 @@
 		F88B0EB815D9B099000DCC14 /* libpcaparm6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F88B0EB315D9B099000DCC14 /* libpcaparm6.a */; };
 		F88B0EB915D9B099000DCC14 /* libpcaparm6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F88B0EB315D9B099000DCC14 /* libpcaparm6.a */; };
 		F89086BD15D6BC1F002D7AF5 /* SECCWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F89086BC15D6BC1F002D7AF5 /* SECCWrapper.m */; };
-		F890870F15D707E0002D7AF5 /* eventLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = F890870D15D707E0002D7AF5 /* eventLoop.mm */; };
+		F890870F15D707E0002D7AF5 /* eventLoop.c in Sources */ = {isa = PBXBuildFile; fileRef = F890870D15D707E0002D7AF5 /* eventLoop.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F83F9C6715DA9D03008275D0 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		F885341415D5B6EA00248B51 /* Security App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Security App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F885341815D5B6EA00248B51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F885341A15D5B6EA00248B51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,7 +123,7 @@
 		F88B0EB315D9B099000DCC14 /* libpcaparm6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpcaparm6.a; sourceTree = "<group>"; };
 		F89086BB15D6BC1F002D7AF5 /* SECCWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECCWrapper.h; sourceTree = "<group>"; };
 		F89086BC15D6BC1F002D7AF5 /* SECCWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SECCWrapper.m; sourceTree = "<group>"; };
-		F890870D15D707E0002D7AF5 /* eventLoop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = eventLoop.mm; sourceTree = "<group>"; };
+		F890870D15D707E0002D7AF5 /* eventLoop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = eventLoop.c; sourceTree = "<group>"; };
 		F890870E15D707E0002D7AF5 /* eventLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventLoop.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 		F885340915D5B6EA00248B51 = {
 			isa = PBXGroup;
 			children = (
+				F83F9C6715DA9D03008275D0 /* README */,
 				F88B0E6F15D99C4A000DCC14 /* dependencies */,
 				F885341E15D5B6EA00248B51 /* Security App */,
 				F885343C15D5B6EA00248B51 /* Security AppTests */,
@@ -191,7 +194,7 @@
 		F885341E15D5B6EA00248B51 /* Security App */ = {
 			isa = PBXGroup;
 			children = (
-				F890870D15D707E0002D7AF5 /* eventLoop.mm */,
+				F890870D15D707E0002D7AF5 /* eventLoop.c */,
 				F890870E15D707E0002D7AF5 /* eventLoop.h */,
 				F885342715D5B6EA00248B51 /* SECAppDelegate.h */,
 				F885342815D5B6EA00248B51 /* SECAppDelegate.m */,
@@ -422,6 +425,7 @@
 			files = (
 				F885342315D5B6EA00248B51 /* InfoPlist.strings in Resources */,
 				F885342C15D5B6EA00248B51 /* MainStoryboard.storyboard in Resources */,
+				F83F9C6815DA9D03008275D0 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +477,7 @@
 				F885342915D5B6EA00248B51 /* SECAppDelegate.m in Sources */,
 				F885342F15D5B6EA00248B51 /* SECViewController.m in Sources */,
 				F89086BD15D6BC1F002D7AF5 /* SECCWrapper.m in Sources */,
-				F890870F15D707E0002D7AF5 /* eventLoop.mm in Sources */,
+				F890870F15D707E0002D7AF5 /* eventLoop.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

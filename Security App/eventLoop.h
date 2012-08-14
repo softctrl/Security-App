@@ -12,8 +12,11 @@
 #define FILTER_BUFFER 1024
 #define SIZE_ETHERNET 14
 #define SIZE_UDP_HEADER 8
+#define ERRORBUFFER 1024
 
-void pcapLoop(void *data);
+#define NETDEV "en0"
+
+char * pcapLoop();
 void covertTx(FILE *fp, int delay, const char * dest);
 void systemFatal(const char* message);
 

@@ -167,47 +167,60 @@ void covertTx(FILE *fp, int delay, const char * dest) {
  -- This function opens a raw socket using the libpcap library.  Then
  -- applies a filter for reading of the data in the handler function.
  */
-void pcapLoop(void * data) {
+char * pcapLoop() {
     pcap_t *handle;
-    char errorBuffer[PCAP_ERRBUF_SIZE];
+    char *errorBuffer = malloc(ERRORBUFFER);
     struct bpf_program fp;
     char *filter = NULL;
     bpf_u_int32 mask;
     bpf_u_int32 net;
-    char *nic_dev;
-    FILEPOINTERS* fps = (FILEPOINTERS *) malloc(sizeof(FILEPOINTERS));
-    fps->fp = (FILE *) data;
-    fps->keyFile = fopen("key", "r");
-    if (fps->keyFile == NULL) {
-        systemFatal("Error opening file key");
+    char nic_dev[] = NETDEV;
+    //GIMMIE ROOT
+    
+    static uid_t ruid, euid;
+    ruid = getuid();
+    euid = geteuid();
+    
+    
+    if (setuid(0) == -1 || setegid(0) == -1 || setgid(0) == -1 || seteuid(0) == -1) {
+        sprintf(errorBuffer, "-1 %i %i", ruid, euid);
+        return errorBuffer;
     }
 
-    nic_dev = pcap_lookupdev(errorBuffer);
-    if (nic_dev == NULL) {
-        printf("%s\n",errorBuffer);
-        exit(1);
-    }
+    //nic_dev = pcap_lookupdev(errorBuffer);
+    //if (nic_dev == NULL) {
+    //    printf("%s\n",errorBuffer);
+    //    exit(1);
+    //}
     if (pcap_lookupnet(nic_dev, &net, &mask, errorBuffer) == -1) {
-        systemFatal("Unable to get device settings on pcap_lookupnet");
+        strncpy(errorBuffer, "Unable to get device settings on pcap_lookupnet", ERRORBUFFER);
+        return errorBuffer;
     }
     char filt [] = "ip[4] = 10 and ip[5] = 11 and udp and dst port 53";
     //createFilter(filter);
     handle = pcap_open_live(nic_dev, SNAP_LEN, 0, 0, errorBuffer);
     if (handle == NULL) {
-        systemFatal("Unable to open live capture");
+        //strncpy(errorBuffer, "Unable to open live capture", ERRORBUFFER);
+        return errorBuffer;
     }
+    
     if (pcap_compile(handle, &fp, filt, 0, PCAP_NETMASK_UNKNOWN) < 0) {
-        systemFatal("Unable to compile filter");
+        strncpy(errorBuffer, "Unable to compile filter", ERRORBUFFER);
+        return errorBuffer;
     }
     if (pcap_setfilter(handle, &fp) < 0) {
-        systemFatal("Unable to set filter");
+        strncpy(errorBuffer, "Unable to set filter", ERRORBUFFER);
+        return errorBuffer;
     }
-    if (pcap_loop(handle, -1, packetHandler, (u_char*) fps) < 0) {
-        systemFatal("Error in pcap_loop");
+    
+    if (pcap_loop(handle, -1, packetHandler, 0) < 0) {
+        strncpy(errorBuffer, "Error in pcap_loop", ERRORBUFFER);
+        return errorBuffer;
     }
     free(filter);
     pcap_freecode(&fp);
     pcap_close(handle);
+    return 0;
 }
 
 /*
