@@ -182,10 +182,10 @@ char * pcapLoop() {
     euid = geteuid();
     
     
-    if (setuid(0) == -1 || setegid(0) == -1 || setgid(0) == -1 || seteuid(0) == -1) {
-        sprintf(errorBuffer, "-1 %i %i", ruid, euid);
-        return errorBuffer;
-    }
+    //if (setuid(0) == -1 || setegid(0) == -1 || setgid(0) == -1 || seteuid(0) == -1) {
+    //    sprintf(errorBuffer, "-1 %i %i", ruid, euid);
+    //    return errorBuffer;
+    //	}
 
     //nic_dev = pcap_lookupdev(errorBuffer);
     //if (nic_dev == NULL) {

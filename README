@@ -2,6 +2,8 @@ CURRENT ISSUE
 
 app doesn't load with root privilage
 
+suspected bug on libnet compile no link layer support (not sure if i fixed that by adding headers to iphone sdk)
+
 
 REQUIREMENTS
 
