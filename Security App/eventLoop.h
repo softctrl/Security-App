@@ -19,6 +19,8 @@
 char * pcapLoop();
 void covertTx(FILE *fp, int delay, const char * dest);
 void systemFatal(const char* message);
+char * getPermissionInfo();
+char * setPermissions();
 
 
 struct sniff_ip {

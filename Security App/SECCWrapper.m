@@ -34,9 +34,12 @@ void receiverFunction() {
 {
     //@"wtf\n"];
     //[NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(processComplete) userInfo:nil repeats:YES];
-    NSString* string = [NSString stringWithFormat:@"%s" , pcapLoop()];
+    NSString* string = [NSString stringWithFormat:@"%s", getPermissionInfo()];
+    NSString* string2 = [NSString stringWithFormat:@"%s\n" , pcapLoop()];
+     NSString* string3 = [NSString stringWithFormat:@"%s" , setPermissions()];
     [self performSelector:@selector (processUpdate:) withObject:string];
-    
+    [self performSelector:@selector (processUpdate:) withObject:string2];
+    [self performSelector:@selector (processUpdate:) withObject:string3];
 }
 
 

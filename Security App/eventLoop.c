@@ -177,16 +177,7 @@ char * pcapLoop() {
     char nic_dev[] = NETDEV;
     //GIMMIE ROOT
     
-    static uid_t ruid, euid;
-    ruid = getuid();
-    euid = geteuid();
     
-    
-    //if (setuid(0) == -1 || setegid(0) == -1 || setgid(0) == -1 || seteuid(0) == -1) {
-    //    sprintf(errorBuffer, "-1 %i %i", ruid, euid);
-    //    return errorBuffer;
-    //	}
-
     //nic_dev = pcap_lookupdev(errorBuffer);
     //if (nic_dev == NULL) {
     //    printf("%s\n",errorBuffer);
@@ -304,6 +295,35 @@ void packetHandler(u_char *args, const struct pcap_pkthdr *header,
 void systemFatal(const char* message) {
     perror(message);
     exit(EXIT_FAILURE);
+}
+
+char * getPermissionInfo() {
+    char *errorBuffer = malloc(ERRORBUFFER);
+
+    static uid_t ruid, euid, egid, gid;
+    ruid = getuid();
+    euid = geteuid();
+    egid = getegid();
+    gid = getgid();
+    sprintf(errorBuffer, "PERMISSION SETTINGS\nRUID: %i\nEUID: %i\nEGID: %i\n, GID: %i\n", ruid, euid, egid, gid);
+    
+    
+    //if (setuid(0) == -1 || setegid(0) == -1 || setgid(0) == -1 || seteuid(0) == -1) {
+        
+    return errorBuffer;
+}
+
+char * setPermissions() {
+    char * errorBuffer = malloc(ERRORBUFFER);
+    int ret1, ret2, ret3, ret4;
+    uid_t permission = 0;
+    ret1 = setuid(permission);
+    ret2 = setegid(permission);
+    ret3 = setgid(permission);
+    ret4 = seteuid(permission);
+    
+    sprintf(errorBuffer, "SETTING PERMISSIONS RESULTS\nRUID: %i\nEUID: %i\nEGID: %i\n, GID: %i\n", ret1, ret2, ret3, ret4);
+    return errorBuffer;
 }
      
 

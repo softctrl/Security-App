@@ -1,6 +1,6 @@
 CURRENT ISSUE
 
-app doesn't load with root privilage
+app doesn't load with root privilage  -- hit dead end can't seem to get this app to use root privilages going to make a theos project
 
 suspected bug on libnet compile no link layer support (not sure if i fixed that by adding headers to iphone sdk)
 
