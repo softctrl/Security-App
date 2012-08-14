@@ -167,7 +167,6 @@ void covertTx(FILE *fp, int delay, const char * dest) {
  -- This function opens a raw socket using the libpcap library.  Then
  -- applies a filter for reading of the data in the handler function.
  */
-/*
 void pcapLoop(void * data) {
     pcap_t *handle;
     char errorBuffer[PCAP_ERRBUF_SIZE];
@@ -210,7 +209,7 @@ void pcapLoop(void * data) {
     pcap_freecode(&fp);
     pcap_close(handle);
 }
- */
+
 /*
  -- FUNCTION: packetHandler
  --
@@ -231,7 +230,7 @@ void pcapLoop(void * data) {
  -- This function opens a raw socket using the libpcap library.  Then
  -- applies a filter for reading of the data in the handler function.
  */
-    /*
+
 void packetHandler(u_char *args, const struct pcap_pkthdr *header,
                    const u_char *packet) {
     
@@ -270,7 +269,7 @@ void packetHandler(u_char *args, const struct pcap_pkthdr *header,
         putc(charArray[i] ^ keyChar, fps->fp);
     }
 }
-
+ /*
  -- FUNCTION: systemFatal
  --
  -- DATE: March 12, 2011
